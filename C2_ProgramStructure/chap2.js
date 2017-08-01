@@ -53,7 +53,7 @@
     fizzbuzz();
 })();
 
-// Ex.2 Chess board
+// Ex.3 Chess board
 
 (function() {
         'use strict'
