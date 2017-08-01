@@ -56,11 +56,27 @@
 // Ex.2 Chess board
 
 (function() {
-  'use strict'
+        'use strict'
 
-  function chessBoard (size) {
-    var string = '#'
-  }
+        function chessBoard(size) {
+            var row = '';
 
-  chessBoard();
-})();
+            for (var i = 0; i < size; i++) {
+                if (i % 2 === 0) {
+                    row = '#';
+                } else {
+                    row = '_';
+                }
+
+                for (var j = 0; j < size - 1; j++) {
+                    if (row.slice(-1) === '#') {
+                        row += '_';
+                    } else {
+                        row += '#'
+                    }
+                }
+                console.log(row);
+            }
+        }
+            chessBoard(8);
+        })();
