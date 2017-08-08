@@ -32,33 +32,28 @@
 
 // Ex.2 Reversing an array
 
-(function(){
-'use strict'
-	function reverseArray(array) {
-		var newArray = [];
-		for (var i = array.length - 1; i >= 0; i--) {
-			newArray.push(array[i]);
-		}
-		return newArray;
-	}
+(function() {
+    'use strict'
 
+    function reverseArray(array) {
+        var newArray = [];
+        for (var i = array.length - 1; i >= 0; i--) {
+            newArray.push(array[i]);
+        }
+        return newArray;
+    }
 
-	// function reverseArrayInPlace(arr) {
-	// 	var arr = [1, 2, 3, 4, 5]
-	// 	for (var j = arr.length - 2; j <= 0; j--) {
-	// 		arr.splice(arr[j]);
-	// 		arr.push(item);
-	// 		console.log(arr);
-	// 	}
+    function reverseArrayInPlace(arr) {
+        for (var j = 0; j < arr.length / 2; j++) {
 
-			
+            var temp = arr[j];
+            arr[j] = arr[arr.length - 1 - j];
+            arr[arr.length - 1 - j] = temp;
+        }
+        return arr;
+    }
 
-	// 	}
-	// 	return arr;
+    console.log('reverseArray ' + reverseArray([1, 2, 3, 4, 5, 6]));
+    console.log('reverseArrayInPlace ' + reverseArrayInPlace([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
-	// }
-
-
-	console.log('reverseArray ' + reverseArray([1, 2, 3, 4, 5, 6]));
-	// console.log('reverseArrayInPlace ' + reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
 })();
