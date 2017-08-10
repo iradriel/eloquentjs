@@ -57,3 +57,25 @@
     console.log('reverseArrayInPlace ' + reverseArrayInPlace([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 })();
+
+// Ex.3 A list
+
+(function() {
+    'use strict'
+
+    function arrayToList(array) {
+
+        for (var i = 1; i <= array.length; i++) {
+
+            var list = {
+                value: array[array.length - i],
+                rest: list
+            }
+        }
+        return list;
+    }
+
+    console.log(arrayToList([1, 2, 3]));
+
+})();
+
