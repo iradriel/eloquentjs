@@ -75,7 +75,47 @@
         return list;
     }
 
-    console.log(arrayToList([1, 2, 3]));
+    var newList = arrayToList([1, 2, 3, 4]);
+
+    console.log(newList);
+
+      function listToArray(list) {
+        var newArray = [];
+        for (var node = list; node; node = node.rest) {
+            newArray.push(node.value);
+        }
+        return newArray;
+    }
+
+    console.log(listToArray(newList));
+
+    function prepend(value, list) {
+      var updatedList = {
+        value: value,
+        rest: list
+      }
+      return updatedList;
+    }
+
+    console.log(prepend(5, newList));
+
+
+    function nth(n, list) {
+        for (var node = list, i = 0; node; node = node.rest, i++) {
+            if (n === 0) {
+                return list;
+            } else if (n - 1 === i) {
+                return node.rest;
+            }
+        }
+    }
+
+    console.log('nth: ' + nth(3, newList));
+
+
+
+
+
+
 
 })();
-
