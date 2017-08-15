@@ -79,7 +79,8 @@
 
     console.log(newList);
 
-      function listToArray(list) {
+
+    function listToArray(list) {
         var newArray = [];
         for (var node = list; node; node = node.rest) {
             newArray.push(node.value);
@@ -89,12 +90,13 @@
 
     console.log(listToArray(newList));
 
+
     function prepend(value, list) {
-      var updatedList = {
-        value: value,
-        rest: list
-      }
-      return updatedList;
+        var updatedList = {
+            value: value,
+            rest: list
+        }
+        return updatedList;
     }
 
     console.log(prepend(5, newList));
@@ -110,12 +112,17 @@
         }
     }
 
-    console.log('nth: ' + nth(3, newList));
+    console.log(nth(1, newList));
 
 
+    function nth(n, list) {
+        if (n === 0) {
+            return list;
+        } else {
+            return nth(n - 1, list.rest);
+        }
+    }
 
-
-
-
+    console.log(nth(1, newList));
 
 })();
