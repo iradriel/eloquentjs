@@ -126,3 +126,58 @@
     console.log(nth(1, newList));
 
 })();
+
+// Ex.4 Deep comparison
+
+(function(){
+  'use strict'
+
+var obj = {here: {1: 2}, object: 9};
+var obj2 = {here: {1: 2}, object: 9};
+
+
+  function deepEqual(x, y) {
+
+      // 1 - compare types
+      if ((typeof x && typeof y === 'object') && (x && y !== null)) {
+
+
+          // 2 - compare number of properties
+          if (Object.keys(obj).length === Object.keys(obj2).length) {
+
+              // 3 - compare properties
+              function compare(x, y) {
+
+                  var xKeys = Object.keys(x);
+                  var result = true;
+
+                  for (var i = 0; i < xKeys.length; i++) {
+                      if (typeof x[xKeys[i]] && typeof y[xKeys[i]] === 'object') {
+                          return compare(x[xKeys[i]], y[xKeys[i]]);
+                      }
+                      result = result && x[xKeys[i]] === y[xKeys[i]];
+                  }
+
+                  return result;
+              }
+              return compare(x, y);
+
+          } else {
+              return false;
+          }
+      }
+
+      // not objects
+      else {
+          if (x === y) {
+              return true;
+          } else {
+              return false;
+          }
+      }
+  }
+
+  console.log(deepEqual(obj, obj2));
+
+
+  })();
